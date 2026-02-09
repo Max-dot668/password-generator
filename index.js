@@ -50,15 +50,15 @@ BONUS FUNCTIONS
 ===========================
 */
 function copyPasswordText(id) {
-    const passwordElement = document.getElementById(id);  // Get the element
-    const passwordText = passwordElement.textContent;     // Get the text from element
+    const passwordElement = document.getElementById(id);  
+    const passwordText = passwordElement.textContent;     
 
     navigator.clipboard.writeText(passwordText)
         .then(() => {
-            const originalText = passwordText;  // passwordText is already a string
-            passwordElement.textContent = "Copied!";  // Change the element's text
+            const originalText = passwordText;  
+            passwordElement.textContent = "Copied!";  
             setTimeout(() => {
-                passwordElement.textContent = originalText;  // Restore original
+                passwordElement.textContent = originalText;  
             }, 1000);
         })
         .catch(err => {

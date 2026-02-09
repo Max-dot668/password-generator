@@ -44,6 +44,11 @@ function displayGeneratedPasswords(passwords) {
     password2El.textContent = passwords[1];
 }
 
+/*
+=========================== 
+BONUS FUNCTIONS 
+===========================
+*/
 function copyPasswordText(id) {
     const passwordElement = document.getElementById(id);  // Get the element
     const passwordText = passwordElement.textContent;     // Get the text from element

@@ -25,7 +25,7 @@ function generateRandomPassword(characters) {
     let passwordLength = Number(document.getElementById("passwordlength-el").value);
     let generatedPassword = "";
 
-    if (passwordLength < 1 || isNaN(passwordLength)) {
+    if (passwordLength < 1 || isNaN(passwordLength) || passwordLength > 100) {
         passwordLength = 15;
     }
 

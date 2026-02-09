@@ -88,8 +88,23 @@ button {
     margin-left: 52px;
 }
 
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
 #passwordlength-el {
     background-color: #273549;
     color: #55F991;
     border: none;
+    border-radius: 2px;
+    text-align: center;
+    padding: 6px 12px;
+    width: 60px;
+    font-size: 16px;
 }

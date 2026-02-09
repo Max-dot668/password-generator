@@ -19,7 +19,7 @@ body {
     margin-top: 115px;
     margin-left: 52px;
     font-family: Karla, sans-serif;
-    color: white;
+    color: #FFFFFF;
     font-size: 40px;
     font-weight: 800;
     line-height: 40px;
@@ -108,4 +108,62 @@ input[type="number"] {
     padding: 6px 12px;
     width: 60px;
     font-size: 16px;
+}
+
+.text-container {
+    display: flex;
+    padding-right: 42px;
+    font-size: 18px;
+}
+
+.toggle-container {
+    display: flex;
+    padding-right: 42px;
+    align-items: center;
+    gap: 16px;
+    font-size: 18px;
+}
+
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+}
+
+
+.toggle input {
+  display: none;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #273549;
+  transition: 0.4s;
+  border-radius: 34px;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 4px;
+  background-color: #FFFFFF;
+  transition: 0.4s;
+  border-radius: 50%;
+}
+
+input:checked + .slider {
+  background-color: #55F991;
+}
+
+input:checked + .slider:before {
+  transform: translateX(26px);
 }

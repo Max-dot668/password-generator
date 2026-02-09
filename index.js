@@ -1,13 +1,29 @@
 /*
 =========================== 
+GLOBAL VARIABLES
+===========================
+*/
+const btnToggleNumbersEl = document.getElementById("btnToggleNumbers");
+const btnToggleSymbolsEl = document.getElementById("btnToggleSymbols");
+
+let btnToggleNumber = false;
+let btnToggleSymbol = false;
+
+/*
+=========================== 
+EVENT LISTENERS
+===========================
+*/
+btnToggleNumbersEl.addEventListener("change", toggleNumberBtn);
+btnToggleSymbolsEl.addEventListener("change", toggleSymbolBtn);
+
+/*
+=========================== 
 MAIN LOGIC 
 ===========================
 */
 function getPasswords() {
-    const characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T",
-    "U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r",
-    "s","t","u","v","w","x","y","z", "0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@",
-    "#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?", "/"];
+    const characters = getCharList(btnToggleNumber, btnToggleSymbol);
 
     let passwords = [];
     passwords.push(generateRandomPassword(characters));
@@ -21,6 +37,25 @@ function getPasswords() {
 HELPER FUNCTIONS 
 ===========================
 */
+function getCharList(btnToggleNumber, btnToggleSymbol) {
+    let characters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T",
+        "U","V","W","X","Y","Z","a","b","c","d","e","f","g","h","i","j","k","l","m","n","o","p","q","r",
+        "s","t","u","v","w","x","y","z"];
+
+    if (btnToggleNumber === true && btnToggleSymbol === true) {
+        characters.push("0", "1", "2", "3", "4", "5", "6", "7", "8", "9","~","`","!","@",
+        "#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?", "/");
+    }
+    else if (btnToggleNumber === true && btnToggleSymbol === false) {
+        characters.push("0", "1", "2", "3", "4", "5", "6", "7", "8", "9");
+    }
+    else if (btnToggleNumber === false && btnToggleSymbol === true) {
+        characters.push("~","`","!","@",
+    "#","$","%","^","&","*","(",")","_","-","+","=","{","[","}","]",",","|",":",";","<",">",".","?", "/")
+    }
+    return characters
+}
+
 function generateRandomPassword(characters) {
     let passwordLength = Number(document.getElementById("passwordlength-el").value);
     let generatedPassword = "";
@@ -65,3 +100,6 @@ function copyPasswordText(id) {
             console.error("Failed to copy: ", err);
         });
 }
+
+function toggleNumberBtn() { btnToggleNumber = btnToggleNumber ? false : true; }
+function toggleSymbolBtn() { btnToggleSymbol = btnToggleSymbol ? false : true; }

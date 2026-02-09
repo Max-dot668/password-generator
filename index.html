@@ -13,11 +13,27 @@
             </div>
             <p class="hint">Never use an insecure password again.</p>
             <div class="input-container">
-                <label>
-                    Password Length:
-                    <input type="number" id="passwordlength-el" name="password-length" min="1" max="100" />
-                    (default = 15)
-                </label>
+                <div class="text-container">
+                    <label>
+                        Length:
+                        <input type="number" id="passwordlength-el" name="password-length" min="1" max="100" />
+                        (default = 15)
+                    </label>
+                </div>
+                <div class="toggle-container">
+                    <p class="enlarge-text">Numbers</p>
+                    <label class="toggle">
+                        <input type="checkbox" id="btnToggleNumbers" name="btnToggleNumbers" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
+                <div class="toggle-container">
+                    <p class="enlarge-text">Symbols</p>
+                    <label class="toggle">
+                        <input type="checkbox" id="btnToggleSymbols" name="btnToggleSymbols" />
+                        <span class="slider"></span>
+                    </label>
+                </div>
                 <button onclick="getPasswords()">Generate Passwords</button>
             </div>
             <hr>
